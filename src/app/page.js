@@ -28,6 +28,7 @@ export default function Home() {
   const [patient, setPatient] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  //useeffect and axios for get and small project
   useEffect(() => {
     const fetchPatientData = async () => {
       try {
@@ -56,7 +57,7 @@ export default function Home() {
   }, []);
 
   if (loading)
-    return <p className="text-center mt-10 text-gray-500">Loading...</p>;
+    return <p className="text-center mt-10 text-gray-500">Loading</p>;
   if (!patient)
     return (
       <p className="text-center mt-10 text-red-500">
@@ -64,7 +65,7 @@ export default function Home() {
       </p>
     );
 
-  // Prepare blood pressure data for Chart.js
+    // map that data out 
   const bpLabels = patient.diagnosis_history.map(
     (month) => `${month.month} ${month.year}`
   );
